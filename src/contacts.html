@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Контакты"
+})
+
+<body>
+   <div class="wrapper">
+      @@include('html/_header.htm',{})
+      <main class="page">
+         <div class="site-breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+            <div class="site-breadcrumbs__container">
+               <span class="site-breadcrumbs__link" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                  <a href="home.html" itemprop="item"> <span itemprop="name">Главная</span> </a>
+               </span>
+               <span class="site-breadcrumbs__separator"></span>
+               <span class="site-breadcrumbs__link" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                  <a href="" itemprop="item"> <span itemprop="name">О нас</span> </a>
+               </span>
+               <span class="site-breadcrumbs__separator"></span>
+               <span class="site-breadcrumbs__title">Кейсы</span>
+            </div>
+         </div>
+
+         <section class="contacts-main">
+            <div class="contacts-main__container">
+               <div class="contacts-main__heading _content">
+                  <h1>Наши контакты</h1>
+               </div>
+
+               <div class="contacts-main__row">
+                  <div class="contacts-main__left">
+                     <div class="contacts">
+                        <div class="contacts__group">
+                           <div class="contacts__item"><strong>141980</strong>, Московская область, г. Дубна, ул. Флерова, дом <strong>11</strong>, офис <strong>67</strong></div>
+                        </div>
+                        <div class="contacts__group _icon-phone-call">
+                           <div class="contacts__item _nowrap"><a href="tel:+79055256396">+7 905 525 63 96</a></div>
+                           <div class="contacts__item _nowrap"><a href="tel:+74962181081">+7 496 218 10 81</a></div>
+                        </div>
+                        <div class="contacts__group _icon-mail">
+                           <div class="contacts__item"><a href="mailto:info@mc-nico.ru">info@mc-nico.ru</a></div>
+                        </div>
+
+                        <div class="contacts__group">
+                           <div class="socials">
+                              <div class="socials__item"><a href="" class="_icon-telegram"></a></div>
+                              <div class="socials__item"><a href="" class="_icon-whatsapp"></a></div>
+                              <div class="socials__item"><a href="" class="_icon-viber"></a></div>
+                           </div>
+                        </div>
+
+                        <div class="contacts__group">
+                           <div class="contacts__caption">Мы в соцсетях:</div>
+
+                           <div class="socials">
+                              <div class="socials__item"><a href="" class="_icon-yandex"></a></div>
+                              <div class="socials__item"><a href="" class="_icon-odnoklassniki"></a></div>
+                              <div class="socials__item"><a href="" class="_icon-vk"></a></div>
+                              <div class="socials__item"><a href="" class="_icon-instagram"></a></div>
+                              <div class="socials__item"><a href="" class="_icon-facebook"></a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="contacts-main__right">
+                     <div class="_content">
+                        <p>Общество с ограниченной ответственностью «Межрегиональный Центр „Независимых Исследований, Консалтинга и Оценки“» (МЦ „НИКО“) является негосударственным экспертным учреждением, осуществляющим свою деятельность на основании Устава и в соответствии с процессуальным законодательством Российской Федерации и Федеральным законом от 31 мая 2001 г. № 73-ФЗ „О государственной судебно-экспертной деятельности в Российской Федерации“.</p>
+
+                        <p>Центральный офис Экспертного учреждения МЦ „НИКО“ расположен в Московской области в городе Дубна. Перспективы развития города Дубны как наукограда Российской Федерации связаны, в первую очередь, с развитием деятельности организаций научно-производственного комплекса, ряда малых инновационных предприятий, космоса и авиации; ядерной физики; приборостроения и электроники; образования; экологии, машиностроения; энергетики; строительства, а также привлечением инвестиций в создание новых наукоёмких производств.</p>
+
+                        <p>Независимая экспертиза МЦ „НИКО“ поможет срочно решить множество задач в различных сферах деятельности, связанных с судебными спорами, конфликтными ситуациями и процессами мирного урегулирования в городе Дубна и ближайших городах: г. Дмитров, г. Талдом, г. Сергиев-Посад, г. Кимры.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section class="map2">
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3cf740f84cd01b930e4433974eb900064c7140fcf910f848dfc391ae0e22609c&amp;width=100%25&amp;height=696&amp;lang=ru_RU&amp;scroll=false"></script>
+         </section>
+
+         <section class="request">
+            <div class="request__container">
+               <div class="request__text _content">
+                  <h2>Оставьте ваши контакты</h2>
+                  <h3>и наш сотрудник свяжется с вами в ближайшее время</h3>
+               </div>
+
+               <form action="" class="request__form">
+                  <div class="form__row">
+                     <div class="form__item col-12">
+                        <label for="request-name" class="form__label">Имя:</label>
+                        <input id="request-name" type="text" name="request-name" placeholder="Как вас зовут?" class="form__input">
+                     </div>
+
+                     <div class="form__item col-12">
+                        <label for="request-phone" class="form__label">Телефон:</label>
+                        <input id="request-phone" type="text" name="request-phone" placeholder="+7 (___) ___ __ __" class="form__input">
+                     </div>
+
+                     <div class="form__item col-12">
+                        <label for="request-mail" class="form__label">и/или E-mail:</label>
+                        <input id="request-mail" type="email" name="request-mail" placeholder="Ваша электронная почта" class="form__input">
+                     </div>
+
+                     <div class="form__item col-12">
+                        <label for="" class="form__label">и/или E-mail:</label>
+                        <select class="form">
+                           <option value="">Вид экспертизы:</option>
+                           <option value="Автотехническая экспертиза">Автотехническая экспертиза</option>
+                           <option value="Оценочная экспертиза">Оценочная экспертиза</option>
+                           <option value="Приемка квартир">Приемка квартир</option>
+                           <option value="Экономическая экспертиза">Экономическая экспертиза</option>
+                           <option value="Строительная экспертиза">Строительная экспертиза</option>
+                           <option value="Пожарно-техническая экспертиза">Пожарно-техническая экспертиза</option>
+                           <option value="Инженерно-техническая экспертиза">Инженерно-техническая экспертиза</option>
+                           <option value="Почерковедческая экспертиза">Почерковедческая экспертиза</option>
+                           <option value="Товароведческая экспертиза">Товароведческая экспертиза</option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="form__submit">
+                     <input class="btn btn_blue" type="submit" value="Отправить">
+                  </div>
+               </form>
+            </div>
+         </section>
+      </main>
+      @@include('html/_footer.htm',{})
+   </div>
+   @@include('html/_popup.htm',{})
+   @@include('html/_js.htm',{})
+</body>
+
+</html>

@@ -1,0 +1,223 @@
+// .footer ====================================================================================================
+.footer {
+   background-color: $DBlue2;
+   color: $White;
+
+   // .footer__container
+   &__container {
+      @include adaptiveValue("padding-top", 40, 24);
+      @include adaptiveValue("padding-bottom", 40, 24);
+      position: relative;
+
+      &::after {
+         content: "";
+         display: block;
+         width: percent(550, 1440);
+         height: 100%;
+         background: url(../img/footer-bg.svg) no-repeat;
+         background-position: center rem(-10);
+         background-size: cover;
+         pointer-events: none;
+         position: absolute;
+         right: 0;
+         top: 0;
+
+         @media (max-width: $mobile) {
+            background-position: left;
+         }
+         @media (max-width: $mobileM) {
+            top: auto;
+            bottom: rem(55);
+            height: percent(445, 763);
+            background-position: left;
+         }
+      }
+   }
+
+   // .footer__top
+   &__top {
+      display: grid;
+      @include adaptiveValue("column-gap", 80, 20, 1920, 575, 1);
+
+      @media (min-width: $mobile) {
+         grid-template-columns: repeat(3, 1fr);
+      }
+      @media (min-width: $tablet) {
+         grid-template-columns: percent(320, 1440) percent(320, 1440) 1fr;
+      }
+      @media (max-width: $mobile) {
+         grid-template-areas:
+            "company contacts"
+            "menu menu";
+         align-items: flex-start;
+      }
+      @media (max-width: $mobileM) {
+         grid-template-areas:
+            "company"
+            "menu"
+            "contacts";
+         justify-content: center;
+         justify-items: center;
+         text-align: center;
+         row-gap: rem(40);
+      }
+
+      &:not(:last-child) {
+         margin-bottom: rem(40);
+      }
+   }
+
+   // .footer__company
+   &__company {
+      display: grid;
+      gap: rem(20);
+
+      @media (max-width: $mobile) {
+         display: flex;
+         align-items: center;
+         grid-area: company;
+      }
+   }
+
+   // .footer__logo
+   &__logo {
+      display: block;
+      max-width: rem(100);
+   }
+   a.footer__logo {
+      @media (any-hover: hover) {
+         transition: $transition ease opacity 0s;
+
+         &:hover {
+            opacity: 0.7;
+         }
+      }
+   }
+
+   // .footer__text
+   &__text {
+      @include adaptiveValue("font-size", 16, 14);
+      line-height: 1;
+      color: $GBlue;
+      max-width: rem(194);
+      text-align: left;
+   }
+
+   // .footer__contacts
+   &__contacts {
+      display: grid;
+      row-gap: rem(24);
+      align-content: flex-start;
+      @include adaptiveValue("font-size", 16, 14);
+      line-height: math.div(20, 14);
+
+      @media (max-width: $mobile) {
+         grid-area: contacts;
+      }
+
+      .contacts {
+         display: grid;
+         row-gap: rem(24);
+
+         // .contacts__group
+         &__group {
+            display: grid;
+            row-gap: rem(8);
+
+            &::before {
+               top: rem(2);
+               font-size: rem(18);
+               color: $GBlue;
+            }
+         }
+
+         // .contacts__item
+         &__item {
+            padding-left: rem(28);
+         }
+      }
+
+      .socials {
+         @media (max-width: $mobileM) {
+            justify-content: center;
+         }
+         // .socials__item
+         &__item {
+            background-color: #869196;
+         }
+      }
+   }
+
+   // .footer__menu
+   &__menu {
+      @media (max-width: $mobile) {
+         grid-area: menu;
+      }
+
+      .menu-item-has-children {
+         ul {
+            display: none;
+         }
+      }
+
+      .menu__body {
+      }
+
+      .menu__list {
+         display: grid;
+         gap: rem(24);
+
+         @media (min-width: $tablet) {
+            display: flex;
+            justify-content: space-between;
+            column-gap: rem(20);
+         }
+      }
+
+      li {
+         font-weight: 500;
+         @include adaptiveValue("font-size", 18, 16);
+         line-height: math.div(22, 18);
+      }
+   }
+
+   // .footer__bottom
+   &__bottom {
+      @include adaptiveValue("font-size", 14, 12);
+      line-height: 1.2;
+      display: grid;
+      @include adaptiveValue("column-gap", 80, 20, 1920, 575, 1);
+      row-gap: rem(16);
+
+      @media (min-width: $mobileM) {
+         grid-template-columns: 1fr 1fr;
+      }
+      @media (min-width: $mobile) {
+         grid-template-columns: percent(320, 1440) 1fr;
+      }
+      @media (max-width: $mobileM) {
+         text-align: center;
+      }
+   }
+
+   // .footer__copyright
+   &__copyright {
+   }
+
+   // .footer__privacy
+   &__privacy {
+   }
+   a.footer__privacy {
+      text-decoration: underline from-font;
+      text-underline-offset: 3px;
+      transition: $transition ease text-decoration 0s;
+
+      @media (any-hover: hover) {
+         &:hover {
+            text-decoration: underline transparent from-font;
+         }
+      }
+   }
+}
+
+//====================================================================================================

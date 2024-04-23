@@ -1,0 +1,187 @@
+// .contacts-main ====================================================================================================
+.contacts-main {
+   @include adaptiveValue("padding-bottom", 56, 40);
+
+   // .contacts-main__container
+   &__container {
+   }
+
+   // .contacts-main__heading
+   &__heading {
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 32, 24);
+      }
+   }
+
+   // .contacts-main__row
+   &__row {
+      display: grid;
+      @include adaptiveValue("column-gap", 40, 20, 1920, 992, 1);
+      row-gap: rem(40);
+
+      @media (min-width: $mobile) {
+         grid-template-columns: rem(290) 1fr;
+      }
+      @media (min-width: $tablet) {
+         grid-template-columns: percent(430, 1440) 1fr;
+      }
+   }
+
+   // .contacts-main__left
+   &__left {
+      .contacts {
+         display: grid;
+         @include adaptiveValue("row-gap", 40, 24);
+
+         // .contacts__group
+         &__group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            @include adaptiveValue("column-gap", 24, 16, 1920, 992, 1);
+            @include adaptiveValue("row-gap", 24, 8);
+
+            &[class*="_icon"] {
+               padding-left: rem(30);
+
+               &::before {
+                  font-size: rem(24);
+                  color: #70b2e2;
+                  top: rem(2);
+               }
+            }
+
+            &._icon-mail {
+               .contacts__item a::before {
+                  border-bottom: 1px solid;
+               }
+            }
+         }
+
+         // .contacts__item
+         &__item {
+            a {
+               font-weight: 600;
+               color: $DBlue;
+            }
+
+            &_address {
+               a {
+                  color: $mainColor;
+               }
+            }
+         }
+
+         // .contacts__caption
+         &__caption {
+            font-weight: 500;
+            flex: 0 0 100%;
+         }
+      }
+      .socials {
+         // .socials__item
+         &__item {
+            a {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               width: rem(36);
+               height: rem(36);
+               font-size: rem(20);
+               border-radius: 50%;
+               color: $White;
+
+               &._icon-telegram {
+                  background-color: #96c8ed;
+                  font-size: rem(36);
+               }
+               &._icon-viber {
+                  background-color: #913e98;
+                  font-size: rem(36);
+               }
+               &._icon-whatsapp {
+                  background-color: #69a042;
+                  font-size: rem(36);
+               }
+               &._icon-yandex {
+                  background-color: #da251d;
+               }
+               &._icon-odnoklassniki {
+                  background-color: #ff9800;
+               }
+               &._icon-vk {
+                  background-color: #4065d6;
+                  font-size: rem(12);
+               }
+               &._icon-instagram {
+                  background: linear-gradient(135deg, #fae100 14.64%, #fcb720 25.25%, #ff7950 35.86%, #ff1c74 50%, #6c1cd1 85.36%);
+               }
+               &._icon-facebook {
+                  background-color: #3b5998;
+               }
+            }
+         }
+      }
+   }
+
+   // .contacts-main__right
+   &__right {
+   }
+}
+
+// .request ====================================================================================================
+.request {
+   background: #f5f8fa;
+   @include adaptiveValue("padding-top", 56, 40);
+   @include adaptiveValue("padding-bottom", 56, 40);
+
+   // .request__container
+   &__container {
+      max-width: rem(440);
+   }
+
+   // .request__text
+   &__text {
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 32, 24);
+      }
+
+      h2,
+      h3 {
+         margin: 0 !important;
+      }
+
+      h3 {
+         font-weight: 400;
+      }
+   }
+
+   // .request__form
+   &__form {
+      .form {
+         // .form__row
+         &__row {
+         }
+
+         // .form__item
+         &__item {
+            margin-bottom: rem(20);
+         }
+
+         // .form__label
+         &__label {
+         }
+
+         // .form__input
+         &__input {
+         }
+
+         // .form__submit
+         &__submit {
+            display: flex;
+            justify-content: center;
+            margin-top: rem(10);
+         }
+      }
+   }
+}

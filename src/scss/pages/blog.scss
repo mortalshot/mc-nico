@@ -1,0 +1,38 @@
+// .blog ====================================================================================================
+.blog {
+   // .blog__container
+   &__container {
+   }
+
+   // .blog__list
+   &__list {
+      display: grid;
+      @include adaptiveValue("row-gap", 64, 32);
+      @include adaptiveValue("column-gap", 40, 16);
+
+      @media (min-width: $mobileM) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+      @media (min-width: $mobile) {
+         grid-template-columns: repeat(3, 1fr);
+      }
+      @media (min-width: $tablet) {
+         grid-template-columns: repeat(4, 1fr);
+      }
+   }
+
+   // .blog__item
+   &__item {
+      .news-card {
+         // .news-card__title
+         &__title {
+         }
+         // .news-card__excerpt
+         &__excerpt {
+         }
+         // .news-card__link
+         &__link {
+         }
+      }
+   }
+}

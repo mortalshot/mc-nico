@@ -1,0 +1,63 @@
+//<BUTTONS (a.btn+tab)>
+// Снипет (HTML): btn
+
+.btn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 400;
+	@include adaptiveValue("font-size", 18, 16);
+	line-height: math.div(19, 16);
+	text-align: center;
+	cursor: pointer;
+	border-radius: rem(10) 0 !important;
+
+	i {
+		font-size: rem(24);
+	}
+
+	&[type="submit"] {
+		-webkit-appearance: none;
+	}
+
+	@media (any-hover: hover) {
+		transition: $transition ease opacity 0s;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	// .btn_blue
+	&_blue {
+		color: $White;
+		background-color: $DBlue;
+		padding: rem(8) rem(20);
+	}
+
+	// .btn_link
+	&_link {
+		padding: rem(7) rem(14) rem(7) rem(10);
+		gap: rem(8);
+		color: $DBlue;
+		background-color: transparent;
+		border-radius: rem(6) 0;
+
+		@media (any-hover: hover) {
+			transition: $transition ease all 0s;
+
+			&:hover {
+				color: $White;
+				background-color: $DBlue;
+				box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+				opacity: 1;
+			}
+		}
+
+		span {
+			text-decoration: underline from-font;
+			text-underline-offset: 3px;
+			transition: $transition ease text-decoration 0s;
+		}
+	}
+}

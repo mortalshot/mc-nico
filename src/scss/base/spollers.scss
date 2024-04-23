@@ -1,0 +1,89 @@
+// Базовые стили спойлеров
+// Сниппет (HTML): spoller
+.spollers {
+	display: grid;
+	@include adaptiveValue("row-gap", 36, 24);
+
+	// .spollers__item
+	&__item {
+		max-width: rem(842);
+	}
+
+	// .spollers__title
+	&__title {
+		width: 100%;
+		cursor: default;
+		font-weight: 500;
+		text-align: left;
+		position: relative;
+		display: flex;
+		align-items: flex-start;
+		gap: rem(16);
+
+		._spoller-init & {
+			cursor: pointer;
+		}
+
+		&._spoller-active {
+			.spollers__icon {
+				background-color: $Blue2;
+			}
+
+			.spollers__icon-inner {
+				&::after {
+					transform: rotate(0);
+				}
+			}
+		}
+	}
+
+	// .spollers__icon
+	&__icon {
+		display: none;
+
+		._spoller-init & {
+			display: block;
+			position: relative;
+			top: rem(4);
+			flex: 0 0 rem(24);
+			width: rem(24);
+			height: rem(24);
+			border-radius: rem(5) 0;
+			background-color: $DBlue;
+			transition: $transition ease background-color 0s;
+		}
+	}
+
+	// .spollers__icon-inner
+	&__icon-inner {
+		._spoller-init & {
+			&::before,
+			&::after {
+				content: "";
+				display: block;
+				width: rem(10);
+				height: rem(1.5);
+				border-radius: rem(50%);
+				background-color: $White;
+				position: absolute;
+				top: rem(11);
+				left: rem(7);
+			}
+			&::before {
+			}
+			&::after {
+				transform: rotate(90deg);
+				transition: $transition ease transform 0s;
+				will-change: transform;
+			}
+		}
+	}
+
+	// .spollers__body
+	&__body {
+		padding-top: rem(16);
+		padding-left: rem(40);
+		font-weight: 500;
+		color: $DBlue;
+	}
+}

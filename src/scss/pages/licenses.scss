@@ -1,0 +1,187 @@
+// .licenses ====================================================================================================
+.licenses {
+   @include adaptiveValue("padding-bottom", 72, 40);
+
+   // .licenses__container
+   &__container {
+      @media (max-width: $mobile) {
+         padding-left: 0;
+         padding-right: 0;
+      }
+   }
+
+   // .licenses__heading
+   &__heading {
+      @media (max-width: $mobile) {
+         padding: 0 rem(math.div($containerPadding, 2));
+      }
+   }
+
+   // .licenses__rows
+   &__rows {
+      display: grid;
+      @include adaptiveValue("row-gap", 52, 32);
+   }
+
+   // .licenses__row
+   &__row {
+      min-width: 0;
+   }
+
+   // .licenses__caption
+   &__caption {
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 40, 24);
+      }
+
+      @media (max-width: $mobile) {
+         padding: 0 rem(math.div($containerPadding, 2));
+      }
+   }
+
+   // .licenses__slider
+   &__slider {
+      @media (max-width: $mobile) {
+         padding: 0 rem(math.div($containerPadding, 2));
+      }
+
+      .swiper__arrow {
+         background: rgba($color: #14599c, $alpha: 0.7);
+         color: $White;
+         top: 30%;
+      }
+   }
+
+   // .licenses__wrapper
+   &__wrapper {
+      @media (min-width: $mobile) {
+         display: grid !important;
+         grid-template-columns: repeat(4, 1fr);
+         @include adaptiveValue("column-gap", 40, 16, 1920, 768, 1);
+         @include adaptiveValue("row-gap", 56, 32, 1920, 768, 1);
+      }
+      @media (min-width: em(1280)) {
+         grid-template-columns: repeat(5, 1fr);
+      }
+   }
+
+   // .licenses__slide
+   &__slide {
+   }
+}
+
+.licenses-card {
+   display: grid;
+   // align-items: flex-start;
+   align-content: flex-start;
+   row-gap: rem(20);
+   grid-template-rows: 1fr rem(46);
+
+   @media (min-width: $mobileM) {
+      grid-template-rows: 1fr rem(48);
+   }
+   @media (min-width: $mobile) {
+      grid-template-rows: 1fr rem(50);
+   }
+   @media (min-width: $tablet) {
+      grid-template-rows: 1fr rem(56);
+   }
+   @media (min-width: $pc) {
+      grid-template-rows: 1fr rem(58);
+   }
+
+   // .licenses-card__img
+   &__img {
+      position: relative;
+      width: 100%;
+      max-width: percent(200, 259);
+      margin-left: auto;
+      margin-right: auto;
+      filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.15));
+      border-radius: rem(2);
+      overflow: hidden;
+
+      &::before,
+      &::after {
+         pointer-events: none;
+         position: absolute;
+         opacity: 0;
+         transition: $transition ease opacity 0s;
+      }
+      &::before {
+         content: "\e917";
+         @extend %ic;
+         font-size: rem(54);
+         left: 50%;
+         top: 50%;
+         z-index: 1;
+         transform: translate(-50%, -50%);
+         color: rgba($color: $White, $alpha: 0.5);
+      }
+      &::after {
+         content: "";
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         background-color: rgba($color: #000000, $alpha: 0.4);
+      }
+
+      &[data-gallery] {
+         @media (any-hover: hover) {
+            &:hover {
+               &::after,
+               &::before {
+                  opacity: 1;
+               }
+            }
+         }
+      }
+   }
+
+   .no-photo {
+      position: relative;
+      filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.15));
+      background: #b0bfc6;
+      color: $White;
+      border-radius: rem(2);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include adaptiveValue("font-size", 94, 64);
+      @include adaptiveValue("min-height", 250, 160);
+
+      @media (min-width: $tablet) {
+         width: 100%;
+         max-width: percent(200, 259);
+         margin-left: auto;
+         margin-right: auto;
+      }
+   }
+
+   // .licenses-card__name
+   &__name {
+      display: block;
+      text-align: center;
+      font-weight: 500;
+      @include adaptiveValue("font-size", 20, 14);
+      line-height: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+   }
+   a.licenses-card__name {
+      text-decoration: underline transparent from-font;
+      text-underline-offset: 3px;
+      transition: $transition ease text-decoration, $transition color 0s;
+
+      @media (any-hover: hover) {
+         &:hover {
+            color: #70b2e2;
+            text-decoration: underline from-font;
+         }
+      }
+   }
+}

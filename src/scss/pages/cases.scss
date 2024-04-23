@@ -1,0 +1,485 @@
+// .services ====================================================================================================
+.services {
+   overflow: hidden;
+
+   // .services__container
+   &__container {
+   }
+
+   // .services__heading
+   &__heading {
+   }
+
+   // .services__list
+   &__list {
+      display: grid;
+      @include adaptiveValue("column-gap", 40, 32, 1920, 992, 1);
+      @include adaptiveValue("row-gap", 80, 40, 1920, 992, 1);
+
+      @media (min-width: $mobileM) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+      @media (min-width: $tablet) {
+         grid-template-columns: repeat(3, 1fr);
+      }
+      @media (min-width: em(1280)) {
+         grid-template-columns: repeat(4, 1fr);
+      }
+   }
+
+   // .services__item
+   &__item {
+      position: relative;
+
+      &::before {
+         position: absolute;
+         z-index: -1;
+         left: 0;
+         top: 50%;
+         transform: translate(-50%, -50%);
+         display: block;
+         width: 200vw;
+         height: calc(100% + 60px);
+         background-color: #f5f8fa;
+      }
+
+      @media (max-width: $mobileM) {
+         &:nth-child(2n) {
+            &::before {
+               content: "";
+               height: calc(100% + 40px);
+            }
+         }
+      }
+      @media (min-width: $mobileM) and (max-width: $tablet) {
+         &:nth-child(4n + 3) {
+            &::before {
+               content: "";
+               height: calc(100% + 40px);
+            }
+         }
+      }
+      @media (min-width: $tablet) and (max-width: em(1280)) {
+         &:nth-child(6n + 4) {
+            &::before {
+               content: "";
+            }
+         }
+      }
+      @media (min-width: em(1280)) {
+         &:nth-child(8n + 5) {
+            &::before {
+               content: "";
+            }
+         }
+      }
+   }
+}
+
+.service-item {
+   display: flex;
+   gap: rem(15);
+
+   // .service-item__icon
+   &__icon {
+      display: inline-flex;
+      align-self: flex-start;
+      transform: rotate(-12deg);
+      @include adaptiveValue("padding", 22, 12);
+      @include adaptiveValue("font-size", 32, 24);
+      color: $White;
+      position: relative;
+      border-radius: rem(10) 0;
+
+      i {
+         transform: rotate(12deg);
+      }
+   }
+
+   // .service-item__body
+   &__body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+   }
+
+   // .service-item__name
+   &__name {
+      display: inline-block;
+      font-weight: 700;
+
+      &:not(:last-child) {
+         margin-bottom: rem(8);
+      }
+   }
+   a.service-item__name {
+      text-decoration: underline transparent from-font;
+      text-underline-offset: 3px;
+      transition: $transition ease text-decoration 0s;
+
+      @media (any-hover: hover) {
+         &:hover {
+            text-decoration: underline from-font;
+         }
+      }
+   }
+
+   // .service-item__attributes
+   &__attributes {
+      display: grid;
+      align-content: flex-end;
+
+      gap: rem(10);
+      flex: 1;
+
+      &:not(:last-child) {
+         margin-bottom: rem(12);
+      }
+   }
+
+   // .service-item__attribute
+   &__attribute {
+      @include adaptiveValue("font-size", 18, 14);
+      line-height: math.div(22, 18);
+   }
+
+   // .service-item__attribute-caption
+   &__attribute-caption {
+      font-weight: 500;
+      color: $DBlue;
+   }
+
+   // .service-item__attribute-value
+   &__attribute-value {
+      font-weight: 700;
+      line-height: 1;
+
+      span {
+         @include adaptiveValue("font-size", 22, 16);
+      }
+   }
+
+   // .service-item__link
+   &__link {
+      justify-content: flex-start;
+      justify-self: flex-start;
+      margin-left: rem(-10);
+   }
+}
+
+// .service-main ====================================================================================================
+.service-main {
+   padding-top: rem(20);
+   padding-bottom: rem(20) !important;
+
+   &:last-child {
+      @include adaptiveValue("margin-bottom", 72, 40);
+   }
+
+   // .service-main__wrapper
+   &__wrapper {
+      background-color: #f6f8fa;
+   }
+
+   // .service-main__container
+   &__container {
+   }
+
+   // .service-main__row
+   &__row {
+      display: grid;
+      @include adaptiveValue("column-gap", 64, 20, 1920, 992, 1);
+      position: relative;
+
+      @media (min-width: $mobile) {
+         grid-template-columns: percent(860, 1440) 1fr;
+      }
+      @media (min-width: $tablet) {
+         grid-template-columns: percent(760, 1440) 1fr;
+      }
+   }
+
+   // .service-main__body
+   &__body {
+      @include adaptiveValue("padding-top", 56, 40);
+      @include adaptiveValue("padding-bottom", 56, 40);
+   }
+
+   // .service-main__title
+   &__title {
+      &:not(:last-child) {
+         margin-bottom: rem(16);
+      }
+   }
+
+   // .service-main__attributes
+   &__attributes {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      @include adaptiveValue("column-gap", 40, 16, 1920, 992, 1);
+      @include adaptiveValue("row-gap", 24, 16);
+
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 40, 24);
+      }
+   }
+
+   // .service-main__attribute
+   &__attribute {
+      display: flex;
+      align-items: flex-end;
+      gap: rem(8);
+   }
+
+   // .service-main__attribute-caption
+   &__attribute-caption {
+      font-weight: 500;
+      color: $DBlue;
+   }
+
+   // .service-main__attribute-value
+   &__attribute-value {
+      font-weight: 700;
+      line-height: 1;
+
+      span {
+         @include adaptiveValue("font-size", 32, 20);
+      }
+   }
+
+   // .service-main__form
+   &__form {
+      .form__item {
+         &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 32, 16);
+         }
+      }
+
+      .form__label {
+         font-weight: 500;
+         @include adaptiveValue("font-size", 18, 14);
+         color: #90a4af;
+      }
+
+      .form__privacy {
+         font-weight: 500;
+         @include adaptiveValue("font-size", 18, 14);
+         line-height: math.div(22, 18);
+
+         a {
+            color: $DBlue;
+         }
+      }
+   }
+
+   // .service-main__image
+   &__image {
+      margin-top: rem(-20);
+      margin-bottom: rem(-20);
+      @media (max-width: $tablet) {
+         margin-right: rem(-20);
+      }
+
+      @media (max-width: $mobile) {
+         display: none;
+      }
+   }
+}
+
+// .cases ====================================================================================================
+.cases {
+   // .cases__container
+   &__container {
+      @media (max-width: $mobileSmall) {
+         padding-left: 0;
+         padding-right: 0;
+      }
+   }
+
+   // .cases__heading
+   &__heading {
+      @media (max-width: $mobileSmall) {
+         padding: 0 rem(math.div($containerPadding, 2));
+      }
+   }
+
+   // .cases__list
+   &__list {
+      display: grid;
+      gap: rem(28);
+      @include adaptiveValue("gap", 28, 20);
+
+      @media (min-width: $mobileSmall) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+      @media (min-width: $mobile) {
+         grid-template-columns: repeat(3, 1fr);
+      }
+      @media (min-width: $tablet) {
+         grid-template-columns: repeat(4, 1fr);
+      }
+   }
+
+   // .cases__slider
+   &__slider {
+      @media (max-width: $mobileSmall) {
+         padding: 0 rem(math.div($containerPadding, 2));
+      }
+   }
+
+   // .cases__item
+   &__item {
+      .portfolio-card {
+         width: 100%;
+      }
+   }
+
+   // .cases__navigation
+   &__navigation {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include adaptiveValue("margin-top", 50, 16);
+
+      .swiper__arrow {
+         @media (min-width: $mobileSmall) {
+            position: initial;
+            background-color: transparent;
+            font-size: rem(18);
+            color: $Blue2;
+            padding: 0;
+         }
+
+         &_left {
+            transform: rotate(0);
+         }
+
+         &_right {
+            transform: rotate(180deg);
+         }
+      }
+
+      .swiper-pagination {
+         margin-top: 0;
+         width: initial !important;
+         counter-reset: item;
+
+         @media (max-width: $mobileSmall) {
+            display: none;
+         }
+
+         .swiper-pagination-bullet {
+            @media (min-width: $mobileSmall) {
+               flex: 0 0 rem(24);
+               width: rem(24);
+               height: rem(24);
+               display: flex;
+               align-items: center;
+               justify-content: center;
+
+               &::before {
+                  content: counter(item);
+                  counter-increment: item;
+                  font-weight: 700;
+                  font-size: rem(18);
+                  line-height: 1;
+                  color: $White;
+               }
+            }
+         }
+      }
+   }
+}
+
+// .case ====================================================================================================
+.case {
+   @include adaptiveValue("padding-bottom", 100, 50);
+
+   // .case__container
+   &__container {
+   }
+
+   // .case__heading
+   &__heading {
+   }
+
+   // .case__row
+   &__row {
+      display: grid;
+      align-items: flex-start;
+      row-gap: rem(32);
+      @include adaptiveValue("column-gap", 40, 20, 1920, 992, 1);
+
+      @media (min-width: $mobileM) {
+         grid-template-columns: 1fr 1fr;
+      }
+      @media (min-width: $mobile) {
+         grid-template-columns: percent(600, 1440) 1fr;
+      }
+      @media (min-width: $tablet) {
+         grid-template-columns: percent(467, 1440) 1fr;
+      }
+   }
+
+   // .case__gallery
+   &__gallery {
+      display: grid;
+      gap: rem(10);
+      grid-template-columns: repeat(3, 1fr);
+
+      @media (min-width: $mobileM) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+      @media (min-width: $mobile) {
+         grid-template-columns: repeat(3, 1fr);
+      }
+   }
+
+   // .case__image
+   &__image {
+      position: relative;
+      padding-bottom: 100%;
+
+      img {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+
+      &:first-child {
+         grid-row: 1/4;
+         grid-column: 1/4;
+
+         @media (min-width: $mobileM) {
+            grid-row: 1/3;
+            grid-column: 1/3;
+         }
+         @media (min-width: $mobile) {
+            grid-row: 1/4;
+            grid-column: 1/4;
+         }
+      }
+
+      &[data-src] {
+         @media (any-hover: hover) {
+            transition: $transition ease opacity 0s;
+
+            &:hover {
+               opacity: 0.6;
+            }
+         }
+      }
+   }
+
+   // .case__body
+   &__body {
+   }
+
+   // .case__navigation
+   &__navigation {
+   }
+}
